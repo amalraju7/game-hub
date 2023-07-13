@@ -3,6 +3,7 @@ import apliClient from "../services/apliClient";
 import {Text} from "@chakra-ui/react"
 import { CanceledError } from "axios";
 import useData from "./useData";
+import { Genre } from "./useCategory";
 
 export interface Game{
     id:number,
@@ -20,5 +21,5 @@ export interface Game{
     }
 
     
-const useGames = () => useData<Game>("/games")
+const useGames = (selectedGenre : Genre | null ) => useData<Game>("/games",{params:{genres:selectedGenre?.id}},[selectedGenre?.id])
 export default useGames;
