@@ -4,6 +4,7 @@ import {Text} from "@chakra-ui/react"
 import { CanceledError } from "axios";
 import useData from "./useData";
 import { Genre } from "./useCategory";
+import { GameQuery } from "../App";
 
 export interface Game{
     id:number,
@@ -21,5 +22,5 @@ export interface Game{
     }
 
     
-const useGames = (selectedGenre : Genre | null,selectedPlatform: Platform | null) => useData<Game>("/games",{params:{genres:selectedGenre?.id, platforms:selectedPlatform?.id}},[selectedGenre?.id,selectedPlatform?.id])
+const useGames = (gameQuery : GameQuery) => useData<Game>("/games",{params:{genres:gameQuery.genre?.id, platforms:gameQuery.platform?.id,ordering:gameQuery.sortOrder}},[gameQuery])
 export default useGames;
