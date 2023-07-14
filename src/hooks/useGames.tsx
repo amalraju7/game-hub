@@ -12,7 +12,8 @@ export interface Game{
     metacritic:number,
     name:string,
     background_image:string,
-    parent_platforms:  {platform:Platform}[]
+    parent_platforms:  {platform:Platform}[],
+    rating_top:number,
     
 }
    export interface Platform{
@@ -22,5 +23,5 @@ export interface Game{
     }
 
     
-const useGames = (gameQuery : GameQuery) => useData<Game>("/games",{params:{genres:gameQuery.genre?.id, platforms:gameQuery.platform?.id,ordering:gameQuery.sortOrder}},[gameQuery])
+const useGames = (gameQuery : GameQuery) => useData<Game>("/games",{params:{genres:gameQuery.genre?.id, platforms:gameQuery.platform?.id,ordering:gameQuery.sortOrder,search:gameQuery.searchText}},[gameQuery])
 export default useGames;

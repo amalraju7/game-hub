@@ -24,7 +24,7 @@ const SortSelector = ({onSelectSortOrder,gameQuery}:SortSelectorProps) => {
 
   return (
     <Menu>
-        <MenuButton as={Button} rightIcon={<BsChevronDown/>} > Sort Order</MenuButton>
+        <MenuButton as={Button} rightIcon={<BsChevronDown/>} > {gameQuery.sortOrder? gameQuery.sortOrder : "Relevance"}</MenuButton>
         <MenuList> 
             {sortOrders.map(sortOrder => <MenuItem onClick={()=>{ onSelectSortOrder(sortOrder.value)}} key={sortOrder.label}>{sortOrder.label}</MenuItem> )}
         </MenuList>
