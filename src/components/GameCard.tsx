@@ -5,6 +5,7 @@ import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/getCroppedImageUrl"
 
 import bullseye from "../assets/bulls-eye.webp"
+import Emoji from "./Emoji";
 
 interface GameCardProps {
     game:Game,
@@ -23,6 +24,7 @@ const GameCard = ({game}:GameCardProps) =>{
                 <CriticScore score={game.metacritic}></CriticScore>
                </HStack>
                 <Heading fontSize={"2xl"}>{game.name}</Heading>
+                <Emoji rating={game.rating_top}></Emoji>
              
             </CardBody>
             
