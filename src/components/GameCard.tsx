@@ -4,6 +4,8 @@ import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/getCroppedImageUrl"
 
+import bullseye from "../assets/bulls-eye.webp"
+
 interface GameCardProps {
     game:Game,
 }
@@ -16,11 +18,12 @@ const GameCard = ({game}:GameCardProps) =>{
 
             </Image>
             <CardBody>
-                <Heading fontSize={"2xl"}>{game.name}</Heading>
-                <HStack justifyContent={"space-between"}>
-               <PlatformIconList platforms={game.parent_platforms.map((platform)=>platform.platform)}></PlatformIconList>
+            <HStack marginBottom={3} justifyContent={"space-between"}>
+               <PlatformIconList platforms={game.parent_platforms?.map((platform)=>platform.platform)}></PlatformIconList>
                 <CriticScore score={game.metacritic}></CriticScore>
                </HStack>
+                <Heading fontSize={"2xl"}>{game.name}</Heading>
+             
             </CardBody>
             
         </Card>

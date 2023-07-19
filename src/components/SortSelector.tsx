@@ -15,8 +15,8 @@ const SortSelector = ({onSelectSortOrder,gameQuery}:SortSelectorProps) => {
  
     const sortOrders = [ 
         {value:'',label:'Relevance'},
-        {value: '-added',label:'Name'},
-        {value:'name',label:'Release date'},
+        {value: '-added',label:'Date'},
+        {value:'name',label:'Name'},
         { value:'-released', label:'Release date'},
         {value:'-metacritic',label:'Populalarity'},
         {value:'-rating',label:'Average rating'},
