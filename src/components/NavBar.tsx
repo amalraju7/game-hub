@@ -1,19 +1,18 @@
-import { HStack, Image, Text } from '@chakra-ui/react'
+import { HStack, Image } from '@chakra-ui/react'
 import logo from '../assets/logo.webp';
 import ColorModeSwitch from './ColorModeSwitch';
 import SearchInput from './SearchInput';
 
-interface NavBarProps{
-  onSearchText: ( seatchText:string) => void;
+interface Props {
+  onSearch: (searchText: string) => void;
 }
 
-const NavBar = ({onSearchText} : NavBarProps ) => {
+const NavBar = ({ onSearch }: Props) => {
   return (
-    <HStack  padding='10px'>
+    <HStack padding='10px'>
       <Image src={logo} boxSize='60px' />
-      <SearchInput onSearchText = {onSearchText}></SearchInput>
-      <ColorModeSwitch></ColorModeSwitch>
-      
+      <SearchInput onSearch={onSearch} />
+      <ColorModeSwitch />
     </HStack>
   )
 }
